@@ -56,8 +56,27 @@ namespace ConsoleApplication1
                     case 4:
                         if (Client.Acc != null && Client.Acc.Details != null)
                         {
-                            Console.WriteLine("Введите вид транзакции (расход/приход)");
-                            string Transaction = Console.ReadLine();
+                            int Transaction = 0;
+                            do
+                            {
+                                Console.WriteLine("Введите вид транзакции (1 - расход/2 - доход)");
+                                Transaction = Int32.Parse(Console.ReadLine());
+                                switch (Transaction)
+                                {
+
+                                    case 1:
+                                        Console.WriteLine("Расход");
+                                        Transaction = 1;
+                                        break;
+                                    case 2:
+                                        Console.WriteLine("Доход");
+                                        Transaction = 2;
+                                        break;
+                                    default:
+                                        Console.WriteLine("Необходимо ввести 1 или 2");
+                                        break;
+                                }
+                            } while (Transaction != 3);
                             Console.WriteLine("Введите категорию:");
                             string Category = Console.ReadLine();
                             Console.WriteLine("Введите сумму:");
